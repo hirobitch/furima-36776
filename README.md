@@ -38,14 +38,6 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| item_name           | string     | null: false                    |
-| item_description    | string     | null: false                    |
-| item_category       | string     | null: false                    | 
-| item_condition      | string     | null: false                    |
-| delivery_fee        | integer    | null: false                    |
-| ship_from_address   | string     | null: false                    |
-| day_to_ship         | integer    | null: false                    |
-| price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 | item                | references | null: false, foreign_key: true |
 
