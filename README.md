@@ -27,7 +27,7 @@
 | ship_from_address_id | integer    | null: false                    |
 | day_to_ship_id       | integer    | null: false                    |
 | price                | integer    | null: false                    |
-| buyer                | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -46,8 +46,8 @@
 | ship_from_address   | string     | null: false                    |
 | day_to_ship         | integer    | null: false                    |
 | price               | integer    | null: false                    |
-| buyer               | references | null: false, foreign_key: true |
-| purchased_item      | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
+| item                | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -58,15 +58,15 @@
 
 ## shipping_addresses テーブル 
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| postal_code       | string     | null: false                    |
-| prefectures       | string     | null: false                    |
-| municipalities    | string     | null: false                    |
-| address           | string     | null: false                    |
-| building          | string     |                                |
-| tell              | string     | null: false                    |
-| purchased_item    | references | null: false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -----------------    | ---------- | ------------------------------ |
+| postal_code          | string     | null: false                    |
+| ship_from_address_id | integer    | null: false                    |
+| municipalities       | string     | null: false                    |
+| address              | string     | null: false                    |
+| building             | string     |                                |
+| tell                 | string     | null: false                    |
+| purchase             | references | null: false, foreign_key: true |
 
 ### Association
 
