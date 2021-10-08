@@ -3,7 +3,7 @@ class FurimasController < ApplicationController
   before_action :move_to_index, except: :index
   
   def index
-    #@items = Item.all
+    @items = Item.all
   end
 
   def new
