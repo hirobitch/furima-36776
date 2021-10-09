@@ -130,14 +130,14 @@
     <ul class='item-lists'>
      <% @items.each do |item| %>
       <li class='list'> 
-        <%= link_to "#" do %>
+        <%= link_to furima_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
-          <% if （ここに条件文） %>
+          <%# if （ここに条件文） %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
-            <% end %>
+            <%# end %>
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
         </div>
