@@ -34,6 +34,12 @@ class FurimasController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path #unless current_user.id == @item.user.id
+  end
+
   private
 
   def item_params
