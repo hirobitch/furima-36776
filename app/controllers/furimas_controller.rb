@@ -1,7 +1,7 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
-
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_contributor, only: [:edit, :destroy]
   def index
     @items = Item.all.order(id: 'DESC')
   end
@@ -23,7 +23,6 @@ class FurimasController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless current_user.id == @item.user.id
   end
 
   def update
@@ -32,6 +31,11 @@ class FurimasController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path 
   end
 
   private
@@ -44,4 +48,9 @@ class FurimasController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+  
+  def set_contributor
+    redirect_to root_path unless  current_user.id == @item.user.id
+  end
+
 end
