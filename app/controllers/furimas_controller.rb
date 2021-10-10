@@ -23,7 +23,6 @@ class FurimasController < ApplicationController
   end
 
   def edit
-    redirect_to root_path 
   end
 
   def update
@@ -35,7 +34,6 @@ class FurimasController < ApplicationController
   end
 
   def destroy
-    redirect_to root_path 
     @item.destroy
     redirect_to root_path 
   end
@@ -52,7 +50,7 @@ class FurimasController < ApplicationController
   end
   
   def set_contributor
-    unless current_user.id == @item.user.id
+    redirect_to root_path unless  current_user.id == @item.user.id
   end
 
 end
