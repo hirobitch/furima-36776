@@ -54,7 +54,7 @@
 | -----------------    | ---------- | ------------------------------ |
 | postal_code          | string     | null: false                    |
 | ship_from_address_id | integer    | null: false                    |
-| municipalities       | string     | null: false                    |
+| municipality         | string     | null: false                    |
 | address              | string     | null: false                    |
 | building             | string     |                                |
 | tell                 | string     | null: false                    |
