@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :puchases
+  has_many :purchases
 
   validates :nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, presence: true
   validates :password, :password_confirmation, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
