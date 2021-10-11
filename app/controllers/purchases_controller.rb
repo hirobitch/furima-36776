@@ -4,10 +4,10 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:furima_id])
     @purchase_address = PurchaseAddress.new
     #@purchase_address = purchase_address.find(params[:id])
-
   end
 
   def create
+    binding.pry
     @item = Item.find(params[:furima_id])
     @purchase_address = PurchaseAddress.new(purchase_params)
     if @purchase_address.valid?
