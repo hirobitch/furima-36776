@@ -1,6 +1,6 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :ship_from_address_id, :municipality, :address, :building, :tell, :purchase
+  attr_accessor :user_id, :item_id, :postal_code, :ship_from_address_id, :municipality, :address, :building, :tell#, :purchase
 
   with_options presence: true do
     validates :user_id
@@ -10,7 +10,7 @@ class PurchaseAddress
     validates :municipality
     validates :address
     validates :tell, format: { with: /\A\d{11}\z/, message: 'Input only number' }
-    validates :purchase
+    #validates :purchase
     #validates :token
   end
 
