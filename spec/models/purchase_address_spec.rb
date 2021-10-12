@@ -74,6 +74,11 @@ describe '商品購入' do
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include("Tell Input only number")
         end
+        it 'buildingは任意である' do
+          @purchase_address.building = ''
+          @purchase_address.valid?
+          #expect(@purchase_address.errors.full_messages).to include("Tell can't be blank")
+        end
       end 
   end 
 end   
