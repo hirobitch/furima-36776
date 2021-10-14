@@ -11,7 +11,7 @@ describe '商品購入' do
   end
 
     context '商品購入できる場合' do
-      it 'user_idとitem_id、postal_codeとship_from_address_idとmunicipalityとaddressとtellが存在して、購入の都度住所を入力すれば登録できる' do
+      it 'user_idとitem_id、postal_codeとship_from_address_idとmunicipalityとaddressとtellとtokenが存在して、購入の都度住所を入力すれば登録できる' do
         expect(@purchase_address).to be_valid
       end
     end
@@ -52,6 +52,12 @@ describe '商品購入' do
         expect(@purchase_address.errors.full_messages).to include("Tell can't be blank")
       end
 
+      it 'tokenが空では購入できない' do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      end
+
       #it 'purchaseが空では登録できない' do
         #@purchase_address.purchase = ''
         #@purchase_address.valid?
@@ -78,6 +84,12 @@ describe '商品購入' do
           @purchase_address.building = ''
           @purchase_address.valid?
           #expect(@purchase_address.errors.full_messages).to include("Tell can't be blank")
+        end
+
+          it 'tellが11桁以下の半角数値のみでないと購入できない' do
+          @purchase_address.tell = 'a23456789000'
+          @purchase_address.valid?
+          expect(@purchase_address.errors.full_messages).to include("Tell Input only number")
         end
       end 
   end 
