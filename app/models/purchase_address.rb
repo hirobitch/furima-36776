@@ -9,10 +9,10 @@ class PurchaseAddress
     validates :ship_from_address_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :municipality
     validates :address
-    validates :tell, format: { with: /\A\d{11}\z/, message: 'Input only number' }
+    validates :tell, format: { with: /\A\d{10,11}\z/, message: 'Input only number' }
     validates :token, presence: true
   end
-
+  
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     ShippingAddress.create(postal_code: postal_code, ship_from_address_id: ship_from_address_id, municipality: municipality,
