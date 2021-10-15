@@ -35,7 +35,7 @@ class FurimasController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to root_path 
+    redirect_to root_path
   end
 
   private
@@ -48,9 +48,8 @@ class FurimasController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
-  def set_contributor
-    redirect_to root_path unless  current_user.id == @item.user.id && @item.purchase == nil
-  end
 
+  def set_contributor
+    redirect_to root_path unless current_user.id == @item.user.id && @item.purchase.nil?
+  end
 end
