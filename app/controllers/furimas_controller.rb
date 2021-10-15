@@ -50,7 +50,7 @@ class FurimasController < ApplicationController
   end
   
   def set_contributor
-    redirect_to root_path unless  current_user.id == @item.user.id
+    redirect_to root_path unless  current_user.id == @item.user.id && @item.purchase == nil
   end
 
 end

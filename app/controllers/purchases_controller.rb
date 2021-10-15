@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   def index
     @item = Item.find(params[:furima_id])
     @purchase_address = PurchaseAddress.new
-    #@purchase_address = purchase_address.find(params[:id])
   end
 
   def create
@@ -26,12 +25,11 @@ private
 
   
   def pay_item
-    #binding.pry
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
-      card: purchase_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @item.price,  
+      card: purchase_params[:token],
+      currency: 'jpy'
   )
   end
 
