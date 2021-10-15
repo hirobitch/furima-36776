@@ -58,11 +58,6 @@ describe '商品購入' do
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
 
-      #it 'purchaseが空では登録できない' do
-        #@purchase_address.purchase = ''
-        #@purchase_address.valid?
-        #expect(@purchase_address.errors.full_messages).to include("Purchase can't be blank")
-        #end
         it 'postal_codeが「3桁ハイフン4桁」の半角文字列のみでないと購入できない' do
           @purchase_address.postal_code = '１111_111'
           @purchase_address.valid?
@@ -83,7 +78,6 @@ describe '商品購入' do
         it 'buildingは任意である' do
           @purchase_address.building = ''
           @purchase_address.valid?
-          #expect(@purchase_address.errors.full_messages).to include("Tell can't be blank")
         end
 
           it 'tellが11桁以下の半角数値のみでないと購入できない' do

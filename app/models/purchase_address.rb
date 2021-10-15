@@ -10,7 +10,6 @@ class PurchaseAddress
     validates :municipality
     validates :address
     validates :tell, format: { with: /\A\d{11}\z/, message: 'Input only number' }
-    #validates :purchase
     validates :token, presence: true
   end
 
