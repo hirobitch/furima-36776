@@ -36,7 +36,7 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'ship_from_address_idが空では購入できない' do
-        @purchase_address.ship_from_address_id = ''
+        @purchase_address.ship_from_address_id = ' --- '
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Ship from address can't be blank")
       end
@@ -74,11 +74,6 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include('Tell Input only number')
       end
 
-      it 'tellが11桁以下の半角数値のみでないと購入できない' do
-        @purchase_address.tell = 'a23456789000'
-        @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Tell Input only number')
-      end
       it 'tellが11桁以下の半角数値のみでないと購入できない' do
         @purchase_address.tell = 'a23456789000'
         @purchase_address.valid?

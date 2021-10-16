@@ -4,7 +4,8 @@ FactoryBot.define do
     ship_from_address_id { 3 }
     municipality         { '新宿区' }
     address              { '新宿' }
-    tell                 { '12_345_678_900' }
+    building             { 'ビル' }
+    tell                 { '12345678900' }
     token                { 'tok_abcdefghijk00000000000000000' }
   end
 end
