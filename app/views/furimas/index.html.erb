@@ -133,13 +133,12 @@
         <%= link_to furima_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <%# if （ここに条件文） %>
+          <% if item.purchase.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
-            <%# end %>
+            <% end %>
           </div>
-          <%# //商品が売れていればsold outを表示しましょう %>
+        
         </div>
         <div class='item-info'>
           <h3 class= item.item-name >
