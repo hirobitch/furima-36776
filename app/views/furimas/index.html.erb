@@ -136,8 +136,8 @@
           <% if item.purchase.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
+            </div>
             <% end %>
-          </div>
         
         </div>
         <div class='item-info'>
@@ -157,6 +157,7 @@
       <% end %>
      
       <%# 商品がある場合は表示されないようにしましょう %>
+      <% unless @items.present? %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -173,9 +174,9 @@
           </div>
         </div>
         <% end %>
-      </li>
+       </li>
+      <% end %>
       <%# //商品がある場合は表示されないようにしましょう %>
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
     </ul>
   </div>
   <%# /商品一覧 %>
